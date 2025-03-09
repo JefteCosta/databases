@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  mariadb:
+    build:
+      context: ${BUILD_CONTEXT}
+      dockerfile: Dockerfile
+    container_name: mariadb_11
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: "mrJC002025@#"
+      MARIADB_USER: "jefte"
+      MARIADB_PASSWORD: "mrJC002025@#$"
+      MARIADB_DATABASE: "jcdb"
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./data:/var/lib/mysql
+    networks:
+      - mariadb_network
+    
+
+networks:
+  mariadb_network:
+    driver: bridge

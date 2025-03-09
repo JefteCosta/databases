@@ -1,0 +1,33 @@
+{
+  "name": "database",
+  "version": "1.0.0",
+  "description": "infraestrutura para banco de dados",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky",
+    "commit": "cz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MidiaHub/database.git"
+  },
+  "author": "JefteCosta",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MidiaHub/database/issues"
+  },
+  "homepage": "https://github.com/MidiaHub/database#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^19.7.1",
+    "@commitlint/config-conventional": "^19.7.1",
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^9.1.7"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
