@@ -3,7 +3,7 @@ version: '3.8'
 services:
   mariadb:
     build:
-      context: ${BUILD_CONTEXT}
+      context: ${BUILD_CONTEXT}/mysql
       dockerfile: Dockerfile
     container_name: mariadb_11
     restart: always
@@ -15,11 +15,26 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - ./data:/var/lib/mysql
+      - ./data/mysql:/var/lib/mysql
     networks:
-      - mariadb_network
+      - jc_network
     
-
+  postgres:
+    build: 
+      context: ${BUILD_CONTEXT}/postgres
+      dockerfile: Dockerfile
+    container_name: postgres_17
+    restart: always
+    environment:
+      POSTGRES_USER: "jefte"
+      POSTGRES_DB: "jcdb"
+      POSTGRES_PASSWORD: "dbJC2025@#"
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+    networks:
+      - jc_network
 networks:
-  mariadb_network:
+  jc_network:
     driver: bridge
